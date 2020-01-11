@@ -13,10 +13,16 @@ const DrumPadButton: React.FC<Props> = ({
   displayName,
   url
 }) => {
+  let playSound = () => {
+    let audio = document.getElementById(keyTrigger) as HTMLAudioElement;
+    audio.currentTime = 0;
+    audio.play();
+  };
+
   return (
-    <button className="drum-pad" id={displayName}>
+    <button className="drum-pad" id={displayName} onClick={playSound}>
       {keyTrigger}
-      <audio src={url} className="clip" id={keyTrigger}></audio>
+      <audio id={keyTrigger} className="clip" src={url}></audio>
     </button>
   );
 };
