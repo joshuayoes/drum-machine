@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 interface Props {
   keyCode: number;
@@ -18,6 +18,18 @@ const DrumPadButton: React.FC<Props> = ({
     audio.currentTime = 0;
     audio.play();
   };
+
+  useEffect(() => {
+    const handleKeyPress = (event: any) => {
+      if (event.key === keyTrigger.toLowerCase()) {
+        playSound();
+      }
+    };
+
+    window.addEventListener("keypress", handleKeyPress);
+
+    return () => window.removeEventListener("keypress", handleKeyPress);
+  });
 
   return (
     <button className="drum-pad" id={displayName} onClick={playSound}>

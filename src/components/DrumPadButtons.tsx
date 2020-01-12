@@ -3,7 +3,7 @@ import DrumPadButton from "./DrumPadButton";
 import drumKeys from "../drumKeys";
 
 const DrumPadButtons: React.FC = () => {
-  const listDrumPadButtons = drumKeys.map((drumKey, idx) => (
+  const listDrumPadButtons = drumKeys.map(drumKey => (
     <DrumPadButton
       key={drumKey.keyTrigger}
       keyCode={drumKey.keyCode}
