@@ -26,7 +26,7 @@ const DrumPadButton: React.FC<Props> = ({
 
   useEffect(() => {
     const handleKeyPress = (event: any) => {
-      if (event.key === keyTrigger.toLowerCase()) {
+      if (event.key === keyTrigger || event.key === keyTrigger.toLowerCase()) {
         playSound();
       }
     };
