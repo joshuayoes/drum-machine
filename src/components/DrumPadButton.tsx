@@ -1,22 +1,27 @@
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { updateDisplay } from "../redux/actions";
 
 interface Props {
   keyCode: number;
   keyTrigger: string;
   displayName: string;
   url: string;
+  dispatch: any;
 }
 
 const DrumPadButton: React.FC<Props> = ({
   keyCode,
   keyTrigger,
   displayName,
-  url
+  url,
+  dispatch
 }) => {
   let playSound = () => {
     let audio = document.getElementById(keyTrigger) as HTMLAudioElement;
     audio.currentTime = 0;
     audio.play();
+    dispatch(updateDisplay(displayName));
   };
 
   useEffect(() => {
@@ -39,4 +44,4 @@ const DrumPadButton: React.FC<Props> = ({
   );
 };
 
-export default DrumPadButton;
+export default connect()(DrumPadButton);
