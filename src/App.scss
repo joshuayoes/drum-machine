@@ -49,5 +49,12 @@ body {
 
 .drum-pad:active,
 .active {
-  background: white;
+  background: rgb(255, 255, 255);
+}
+
+#display {
+  color: white;
+  padding: 2em;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
