@@ -15,7 +15,7 @@ const DrumPadButtons: React.FC = () => {
     />
   ));
 
-  return <section> {listDrumPadButtons} </section>;
+  return <section id="drum-pad-container"> {listDrumPadButtons} </section>;
 };
 
 export default DrumPadButtons;
